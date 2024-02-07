@@ -15,7 +15,7 @@ const StyledLayout = styled.div`
 const Main = styled.main`
   grid-column: 2 / -1;
   grid-row: 2 / -1;
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-0);
 `;
 
 function Layout() {

@@ -26,7 +26,6 @@ const NavList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  /* background-color: red; */
 `;
 
 const StyledNavLink = styled(NavLink)`

@@ -1,12 +1,15 @@
 import styled, { css } from 'styled-components';
 
 const type = {
+  acctBalance: css`
+    background-color: var(--color-gray-800);
+  `,
   balance: css`
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
   `,
   expenses: css`
-    background-color: #111111;
+    background-color: var(--color-gray-800);
   `,
 };
 

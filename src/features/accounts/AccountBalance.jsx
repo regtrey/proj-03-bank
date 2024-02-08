@@ -9,13 +9,13 @@ import {
   CardTitle,
 } from '../../ui/Card';
 
-function ExpensesCard() {
+function AccountBalance() {
   return (
-    <Card $type="expenses">
+    <Card $type="acctBalance">
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
-        <CardTitle>Total expenses</CardTitle>
-        <Amount>$322.42</Amount>
+        <CardTitle>Balance</CardTitle>
+        <Amount>$4,537.24</Amount>
       </BalanceDetails>
 
       <CardDetails>
@@ -28,4 +28,4 @@ function ExpensesCard() {
   );
 }
 
-export default ExpensesCard;
+export default AccountBalance;

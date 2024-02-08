@@ -3,7 +3,8 @@ import { HiOutlineCircleStack, HiOutlineCreditCard } from 'react-icons/hi2';
 
 const StyledBills = styled.div`
   width: 100%;
-  background-color: #111111;
+  background-color: var(--color-gray-800);
+
   color: var(--color-gray-0);
   border-radius: 15px;
   padding: 2rem;
@@ -16,8 +17,7 @@ const StyledBills = styled.div`
   & svg {
     height: 6rem;
     width: 6rem;
-    color: #fa6a6a;
-    color: var(--color-secondary-500);
+    color: var(--color-secondary-400);
   }
 `;
 

@@ -19,7 +19,7 @@ function BalanceCard() {
       </BalanceDetails>
 
       <CardDetails>
-        <CardNum>4012 8888 8888 1881</CardNum>
+        <CardNum>4012 2368 8918 1537</CardNum>
         <CardName>
           Naomi Osaka <span>05/27</span>
         </CardName>

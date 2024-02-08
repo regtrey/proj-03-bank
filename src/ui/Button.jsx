@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const sizes = {
+  small: css`
+    width: 100%;
+    font-size: 2rem;
+  `,
+};
 
 export const Button = styled.button`
   width: 20rem;
@@ -15,4 +22,6 @@ export const Button = styled.button`
   &:hover {
     background-color: var(--color-primary-500);
   }
+
+  ${(props) => sizes[props.$size]}
 `;

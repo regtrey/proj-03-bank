@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import {
   HiOutlineHome,
   HiOutlineBanknotes,
-  HiOutlineCircleStack,
   HiOutlineArrowTrendingUp,
+  HiOutlineCog6Tooth,
 } from 'react-icons/hi2';
 import { NavLink } from 'react-router-dom';
 
@@ -90,7 +90,7 @@ function SideBar() {
         </li>
         <li>
           <StyledNavLink to="/settings">
-            <HiOutlineCircleStack /> <Span>Settings</Span>
+            <HiOutlineCog6Tooth /> <Span>Settings</Span>
           </StyledNavLink>
         </li>
       </NavList>

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import BalanceCard from '../features/dashboard/BalanceCard';
+
 import { Heading } from '../ui/Heading';
+import BalanceCard from '../features/dashboard/BalanceCard';
+import ExpensesCard from '../features/dashboard/ExpensesCard';
+import Bills from '../features/dashboard/Bills';
 
 const StyledDashboard = styled.div`
   height: 100%;
@@ -19,35 +22,33 @@ const StatsRow = styled.div`
   grid-row: 2 / 3;
 `;
 
-const Col2 = styled.div`
-  width: 100%;
-  background-color: #9decc6;
+const StyledStatsChart = styled.div`
+  background-color: var(--color-gray-200);
   border-radius: 15px;
-`;
+  padding: 2rem;
 
-const Col3 = styled.div`
-  width: 100%;
-  background-color: #b99dec;
-  border-radius: 15px;
-`;
-
-const Col4 = styled.div`
   grid-column: 1 / -1;
   grid-row: 3 / -1;
-  background-color: #dee6a5;
-  border-radius: 15px;
+`;
+
+const StatsChartHeading = styled(Heading)`
+  font-size: 2.2rem;
 `;
 
 function Dashboard() {
   return (
     <StyledDashboard>
       <Heading>Dashboard</Heading>
+
       <StatsRow>
         <BalanceCard />
-        <Col2>2</Col2>
-        <Col3>3</Col3>
+        <ExpensesCard />
+        <Bills />
       </StatsRow>
-      <Col4>4</Col4>
+
+      <StyledStatsChart>
+        <StatsChartHeading>Expenses Chart</StatsChartHeading>
+      </StyledStatsChart>
     </StyledDashboard>
   );
 }

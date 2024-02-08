@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { useSearchParams } from 'react-router-dom';
 
 import { Heading } from '../ui/Heading';
 import Filter from '../ui/Filter';
-import { useSearchParams } from 'react-router-dom';
 
 const StyledAccounts = styled.div`
   height: 100%;

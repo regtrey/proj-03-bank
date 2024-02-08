@@ -29,6 +29,19 @@ const GlobalStyles = createGlobalStyle`
         --color-primary-900: #134e4a;
         --color-primary-950: #042f2e;
 
+         /* Rose */
+        --color-secondary-50: #fff1f2;
+        --color-secondary-100: #ffe4e6;
+        --color-secondary-200: #fecdd3;
+        --color-secondary-300: #fda4af;
+        --color-secondary-400: #fb7185;
+        --color-secondary-500: #f43f5e;
+        --color-secondary-600: #e11d48;
+        --color-secondary-700: #be123c;
+        --color-secondary-800: #9f1239;
+        --color-secondary-900: #881337;
+        --color-secondary-950: #4c0519;
+
         /* Gradient */
         --color-gradient-bg: hsla(0, 100%, 50%, 1);
         --color-gradient-mesh: radial-gradient(

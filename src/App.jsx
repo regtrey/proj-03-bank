@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './ui/Layout';
 import Dashboard from './pages/Dashboard';
 import Accounts from './pages/Accounts';
-import Loan from './pages/Loan';
+import Settings from './pages/Settings';
 import Transactions from './pages/Transactions';
 import PageNotFound from './ui/PageNotFound';
 
@@ -17,7 +17,7 @@ function App() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="accounts" element={<Accounts />} />
-          <Route path="loan" element={<Loan />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="transactions" element={<Transactions />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />

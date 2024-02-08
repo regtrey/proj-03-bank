@@ -84,13 +84,13 @@ function SideBar() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/loan">
-            <HiOutlineCircleStack /> <Span>Loan</Span>
+          <StyledNavLink to="/transactions">
+            <HiOutlineArrowTrendingUp /> <Span>Transactions</Span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/transactions">
-            <HiOutlineArrowTrendingUp /> <Span>Transactions</Span>
+          <StyledNavLink to="/settings">
+            <HiOutlineCircleStack /> <Span>Settings</Span>
           </StyledNavLink>
         </li>
       </NavList>

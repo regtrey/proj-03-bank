@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import BalanceCard from '../ui/BalanceCard';
+import BalanceCard from '../features/dashboard/BalanceCard';
+import { Heading } from '../ui/Heading';
 
 const StyledDashboard = styled.div`
   height: 100%;
@@ -8,12 +9,6 @@ const StyledDashboard = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto 22.5rem 1fr;
   gap: 1.5rem;
-`;
-
-const Heading = styled.h1`
-  font-size: 3rem;
-  color: var(--color-gray-800);
-  letter-spacing: -2px;
 `;
 
 const StatsRow = styled.div`

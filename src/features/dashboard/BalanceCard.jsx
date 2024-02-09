@@ -21,7 +21,12 @@ function BalanceCard() {
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
         <CardTitle>Balance</CardTitle>
-        <Amount>${cardBalance}</Amount>
+        <Amount>
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(cardBalance)}
+        </Amount>
       </BalanceDetails>
 
       <CardDetails>

@@ -4,6 +4,8 @@ import { Heading } from '../../ui/Heading';
 import { Form, Input, Label } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { withdraw } from './accountsSlice';
 
 const StyledWithdraw = styled.div`
   height: 35rem;
@@ -25,16 +27,24 @@ const Title = styled(Heading)`
 `;
 
 function Withdraw() {
-  const [withdrawAmount, setWithdrawAmount] = useState(0);
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+
+  const dispatch = useDispatch();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(withdraw(withdrawAmount));
+    setWithdrawAmount('');
+  }
 
   return (
     <StyledWithdraw>
       <Title as="h2">Withdraw</Title>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
           value={withdrawAmount}
-          onChange={(e) => setWithdrawAmount(e.target.value)}
+          onChange={(e) => setWithdrawAmount(Number(e.target.value))}
         />
         <Button $size="small">Withdraw</Button>
       </Form>

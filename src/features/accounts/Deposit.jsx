@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 import { useState } from 'react';
+import { deposit } from './accountsSlice';
 
 const StyledDeposit = styled.div`
   height: 35rem;
@@ -21,18 +23,26 @@ const Title = styled(Heading)`
 `;
 
 function Deposit() {
-  const [depositAmount, setDepositAmount] = useState(0);
+  const [depositAmount, setDepositAmount] = useState('');
   const [currency, setCurrency] = useState('USD');
+
+  const dispatch = useDispatch();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(deposit(depositAmount));
+    setDepositAmount('');
+  }
 
   return (
     <StyledDeposit>
       <Title as="h2">Deposit</Title>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
           type="number"
           value={depositAmount}
-          onChange={(e) => setDepositAmount(e.target.value)}
+          onChange={(e) => setDepositAmount(Number(e.target.value))}
         />
 
         <Label>Select currency</Label>

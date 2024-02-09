@@ -80,6 +80,16 @@ const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
     }
+
+    input,
+    select {
+        border: 1px solid var(--color-gray-400);
+        padding: 1rem;
+
+        &:focus {
+            outline: 1px solid var(--color-primary-400);
+        }
+    }
 `;
 
 export default GlobalStyles;

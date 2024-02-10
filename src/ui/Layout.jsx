@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
-import Sidebar from './SideBar';
+import Sidebar from './Sidebar';
 import { Header } from './Header';
 import { Logo } from './Logo';
 
@@ -16,6 +16,7 @@ const Main = styled.main`
   grid-column: 2 / -1;
   grid-row: 2 / -1;
   background-color: var(--color-gray-0);
+  overflow: scroll;
 `;
 
 function Layout() {

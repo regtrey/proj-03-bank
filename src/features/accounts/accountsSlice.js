@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import getCurrentTime from '../../utils/getCurrentTime';
 
 const initialState = {
   balance: 0,
   loanBalance: 0,
-  transactions: [{ date: '', type: '', amount: 0 }],
+  transactions: [],
   isLoading: false,
 };
 
@@ -13,10 +14,20 @@ const accountsSlice = createSlice({
   reducers: {
     deposit(state, action) {
       state.balance += action.payload;
+      state.transactions.push({
+        date: getCurrentTime(),
+        type: 'Deposit',
+        amount: action.payload,
+      });
       state.isLoading = false;
     },
     withdraw(state, action) {
       state.balance -= action.payload;
+      state.transactions.push({
+        date: getCurrentTime(),
+        type: 'Withdraw',
+        amount: action.payload,
+      });
     },
     loan(state, action) {
       state.loanBalance += action.payload;

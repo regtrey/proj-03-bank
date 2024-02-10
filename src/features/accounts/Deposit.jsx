@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 import { useState } from 'react';
 import { deposit } from './accountsSlice';
+import MiniSpinner from '../../ui/MiniSpinner';
 
 const StyledDeposit = styled.div`
   height: 35rem;
@@ -27,11 +28,15 @@ function Deposit() {
   const [currency, setCurrency] = useState('USD');
 
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.accounts.isLoading);
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(deposit(depositAmount));
+
+    if (!depositAmount) return;
+    dispatch(deposit(depositAmount, currency));
     setDepositAmount('');
+    setCurrency('USD');
   }
 
   return (
@@ -49,8 +54,11 @@ function Deposit() {
         <Select value={currency} onChange={(e) => setCurrency(e.target.value)}>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="HKD">HKD</option>
+          <option value="PHP">PHP</option>
         </Select>
-        <Button $size="small">Deposit</Button>
+        <Button $size="small">{isLoading ? <MiniSpinner /> : 'Deposit'}</Button>
       </Form>
     </StyledDeposit>
   );

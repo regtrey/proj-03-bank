@@ -1,4 +1,6 @@
 import { useSelector } from 'react-redux';
+import formatCurrency from '../../utils/formatCurrency';
+
 import {
   Card,
   Amount,
@@ -21,12 +23,7 @@ function AccountBalance() {
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
         <CardTitle>Balance</CardTitle>
-        <Amount>
-          {new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          }).format(cardBalance)}
-        </Amount>
+        <Amount>{formatCurrency(cardBalance)}</Amount>
       </BalanceDetails>
 
       <CardDetails>

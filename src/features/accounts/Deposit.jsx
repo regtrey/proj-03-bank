@@ -45,7 +45,7 @@ function Deposit() {
       <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
-          type="number"
+          type="tel"
           min="0"
           value={depositAmount}
           onChange={(e) => setDepositAmount(Number(e.target.value))}

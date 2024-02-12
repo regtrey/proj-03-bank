@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 
 const StyledPageNotFound = styled.div`
   height: 100dvh;
-  padding: 10rem 0;
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@ const ErrorContainer = styled.div`
 `;
 
 const ErrorMessage = styled.h1`
-  font-size: 8rem;
+  font-size: 6rem;
   font-weight: 500;
 `;
 

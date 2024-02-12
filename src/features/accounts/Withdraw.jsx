@@ -29,6 +29,11 @@ const Title = styled(Heading)`
 const ErrorSpan = styled.span`
   font-size: 1.2rem;
   color: red;
+  position: absolute;
+  top: 8.5rem;
+  right: 1rem;
+
+  display: ${(props) => (!props.$isEnough ? 'block' : 'none')};
 `;
 
 function Withdraw() {
@@ -37,10 +42,12 @@ function Withdraw() {
   const dispatch = useDispatch();
   const balance = useSelector((state) => state.accounts.balance);
 
+  const isEnough = balance >= withdrawAmount;
+
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (withdrawAmount > balance) return;
+    if (withdrawAmount > balance || withdrawAmount === 0) return;
 
     dispatch(withdraw(withdrawAmount));
     setWithdrawAmount('');
@@ -52,13 +59,13 @@ function Withdraw() {
       <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
-          type="number"
+          type="tel"
           min="0"
+          $isEnough={!isEnough ? 'insufficient' : ''}
           value={withdrawAmount}
           onChange={(e) => setWithdrawAmount(Number(e.target.value))}
-        >
-          <ErrorSpan>Insufficient balance</ErrorSpan>
-        </Input>
+        ></Input>
+        <ErrorSpan $isEnough={isEnough}>Insufficient balance</ErrorSpan>
         <Button $size="small">Withdraw</Button>
       </Form>
     </StyledWithdraw>

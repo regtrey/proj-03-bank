@@ -1,19 +1,20 @@
 import styled from 'styled-components';
+import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import formatCurrency from '../utils/formatCurrency';
 
 import { Heading } from '../ui/Heading';
 import Pagination from '../ui/Pagination';
-import { useSearchParams } from 'react-router-dom';
 
 const StyledTransactions = styled.div`
   height: 100%;
   padding: 3rem;
+  overflow: hidden;
 `;
 
 const TransactionsList = styled.ul`
   height: max-content;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 `;
 
 const Transaction = styled.li`

@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { useSearchParams } from 'react-router-dom';
 
 const StyledPagination = styled.div`
   font-size: 1.3rem;
-  padding: 2rem 1rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;

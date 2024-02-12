@@ -4,7 +4,7 @@ import { Heading } from '../../ui/Heading';
 import { Form, Input, Label } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { withdraw } from './accountsSlice';
 
 const StyledWithdraw = styled.div`
@@ -26,13 +26,22 @@ const Title = styled(Heading)`
   font-size: 2.5rem;
 `;
 
+const ErrorSpan = styled.span`
+  font-size: 1.2rem;
+  color: red;
+`;
+
 function Withdraw() {
   const [withdrawAmount, setWithdrawAmount] = useState('');
 
   const dispatch = useDispatch();
+  const balance = useSelector((state) => state.accounts.balance);
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (withdrawAmount > balance) return;
+
     dispatch(withdraw(withdrawAmount));
     setWithdrawAmount('');
   }
@@ -43,9 +52,13 @@ function Withdraw() {
       <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
+          type="number"
+          min="0"
           value={withdrawAmount}
           onChange={(e) => setWithdrawAmount(Number(e.target.value))}
-        />
+        >
+          <ErrorSpan>Insufficient balance</ErrorSpan>
+        </Input>
         <Button $size="small">Withdraw</Button>
       </Form>
     </StyledWithdraw>

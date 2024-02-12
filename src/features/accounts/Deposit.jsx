@@ -46,6 +46,7 @@ function Deposit() {
         <Label>Amount</Label>
         <Input
           type="number"
+          min="0"
           value={depositAmount}
           onChange={(e) => setDepositAmount(Number(e.target.value))}
         />

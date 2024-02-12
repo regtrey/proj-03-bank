@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import formatCurrency from '../utils/formatCurrency';
 
 import { Heading } from '../ui/Heading';
+import Pagination from '../ui/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 const StyledTransactions = styled.div`
   height: 100%;
@@ -43,28 +45,41 @@ const TransactionDetails = styled.h2`
 const TransactionAmount = styled.h3`
   font-size: 2.5rem;
 
-  color: ${(props) => props.$gain && '#29a429'};
+  /* color: ${(props) => props.$gain && '#29a429'}; */
 `;
 
+const MAX_ITEMS_PER_PAGE = 5;
+
 function Transactions() {
+  const [searchParams] = useSearchParams();
+
   const transactions = useSelector((state) => state.accounts.transactions);
+  const numItems = transactions.length;
+
+  const currentPage = searchParams.get('page') || 1;
+  const startItem = currentPage * MAX_ITEMS_PER_PAGE - MAX_ITEMS_PER_PAGE;
+  const endItem = currentPage * MAX_ITEMS_PER_PAGE;
+
+  const filteredTransactions = transactions.slice(startItem, endItem);
 
   return (
     <StyledTransactions>
       <Heading>Transactions</Heading>
       <TransactionsList>
-        {transactions.map((transaction, i) => (
+        {filteredTransactions.map((transaction, i) => (
           <Transaction key={i}>
             <TransactionDetails>
               {transaction.type} <span>{transaction.date}</span>
             </TransactionDetails>
             <TransactionAmount $gain={transaction.type === 'Deposit'}>
-              {transaction.type !== 'Deposit' && '-'}
+              {transaction.type !== 'Deposit' ? '-' : ''}
               {formatCurrency(transaction.amount)}
             </TransactionAmount>
           </Transaction>
         ))}
       </TransactionsList>
+
+      <Pagination numItems={numItems} maxItems={MAX_ITEMS_PER_PAGE} />
     </StyledTransactions>
   );
 }

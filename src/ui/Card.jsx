@@ -12,6 +12,11 @@ const type = {
     width: 50%;
     background-color: var(--color-gray-800);
   `,
+  loanBalance: css`
+    width: 50%;
+    background-color: var(--color-gray-800);
+  `,
+
   expenses: css`
     background-color: var(--color-gray-800);
   `,

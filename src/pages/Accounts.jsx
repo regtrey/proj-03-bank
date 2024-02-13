@@ -6,6 +6,7 @@ import Filter from '../ui/Filter';
 import AccountBalance from '../features/accounts/AccountBalance';
 import Debit from '../features/accounts/Debit';
 import Credit from '../features/accounts/Credit';
+import Loan from '../features/accounts/Loan';
 
 const StyledAccounts = styled.div`
   height: 100%;
@@ -48,6 +49,7 @@ function Accounts() {
 
         {curSelected === 'debit' && <Debit />}
         {curSelected === 'credit' && <Credit />}
+        {curSelected === 'loan' && <Loan />}
       </AccountContainer>
     </StyledAccounts>
   );

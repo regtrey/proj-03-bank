@@ -7,7 +7,7 @@ import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 
-const StyledCreditPayment = styled.div`
+const StyledLoanPayment = styled.div`
   width: 50%;
   background-color: var(--color-gray-50);
   border-radius: 15px;
@@ -31,24 +31,22 @@ const ErrorSpan = styled.span`
   display: ${(props) => (!props.$isEnough ? 'block' : 'none')};
 `;
 
-function CreditPayment() {
+function LoanPayment() {
   const [paymentType, setPaymentType] = useState('full');
   const [paymentAmount, setPaymentAmount] = useState(0);
 
   const dispatch = useDispatch();
   const balance = useSelector((state) => state.accounts.balance);
-  const creditCardBill = useSelector(
-    (state) => state.accounts.bills.creditCardBill
-  );
+  const loans = useSelector((state) => state.accounts.bills.loans);
 
   const isEnough = balance >= paymentAmount;
 
   useEffect(
     function () {
-      if (paymentType === 'full') setPaymentAmount(creditCardBill);
+      if (paymentType === 'full') setPaymentAmount(loans);
       if (paymentType === 'partial') setPaymentAmount(paymentAmount);
     },
-    [paymentType, creditCardBill]
+    [paymentType, loans]
   );
 
   function handleSubmit(e) {
@@ -58,19 +56,19 @@ function CreditPayment() {
 
     dispatch(payCreditCard(paymentAmount));
     setPaymentType('full');
-    setPaymentAmount(creditCardBill);
+    setPaymentAmount(loans);
   }
 
   return (
-    <StyledCreditPayment>
-      <Title as="h2">Credit Card Bill</Title>
+    <StyledLoanPayment>
+      <Title as="h2">Loan Payment</Title>
       <Form onSubmit={handleSubmit}>
         <Label>Amount</Label>
         <Input
           type="tel"
           min="0"
           $isEnough={!isEnough ? 'insufficient' : ''}
-          value={paymentType === 'full' ? creditCardBill : paymentAmount}
+          value={paymentType === 'full' ? loans : paymentAmount}
           onChange={(e) => setPaymentAmount(Number(e.target.value))}
           disabled={paymentType === 'full'}
         />
@@ -89,11 +87,11 @@ function CreditPayment() {
           $size="small"
           disabled={!isEnough || balance === 0 || paymentAmount === 0}
         >
-          Pay balance
+          Pay loan
         </Button>
       </Form>
-    </StyledCreditPayment>
+    </StyledLoanPayment>
   );
 }
 
-export default CreditPayment;
+export default LoanPayment;

@@ -4,9 +4,9 @@ import getCurrentTime from '../../utils/getCurrentTime';
 const initialState = {
   balance: 0,
   creditBalance: 8000,
-  loanBalance: 0,
   bills: {
     creditCardBill: 2000,
+    loans: 0,
   },
   transactions: [],
   isLoading: false,

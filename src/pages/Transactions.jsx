@@ -5,6 +5,7 @@ import formatCurrency from '../utils/formatCurrency';
 
 import { Heading } from '../ui/Heading';
 import Pagination from '../ui/Pagination';
+import Empty from '../ui/Empty';
 
 const StyledTransactions = styled.div`
   height: 100%;
@@ -66,19 +67,24 @@ function Transactions() {
   return (
     <StyledTransactions>
       <Heading>Transactions</Heading>
-      <TransactionsList>
-        {filteredTransactions.map((transaction, i) => (
-          <Transaction key={i}>
-            <TransactionDetails>
-              {transaction.type} <span>{transaction.date}</span>
-            </TransactionDetails>
-            <TransactionAmount $gain={transaction.type === 'Deposit'}>
-              {transaction.type !== 'Deposit' ? '-' : ''}
-              {formatCurrency(transaction.amount)}
-            </TransactionAmount>
-          </Transaction>
-        ))}
-      </TransactionsList>
+
+      {!numItems ? (
+        <Empty />
+      ) : (
+        <TransactionsList>
+          {filteredTransactions.map((transaction, i) => (
+            <Transaction key={i}>
+              <TransactionDetails>
+                {transaction.type} <span>{transaction.date}</span>
+              </TransactionDetails>
+              <TransactionAmount $gain={transaction.type === 'Deposit'}>
+                {transaction.type !== 'Deposit' ? '-' : ''}
+                {formatCurrency(transaction.amount)}
+              </TransactionAmount>
+            </Transaction>
+          ))}
+        </TransactionsList>
+      )}
 
       <Pagination numItems={numItems} maxItems={MAX_ITEMS_PER_PAGE} />
     </StyledTransactions>

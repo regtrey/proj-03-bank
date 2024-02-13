@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { withdraw } from './accountsSlice';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label } from '../../ui/Form';
 import { Button } from '../../ui/Button';
-import { withdraw } from './accountsSlice';
 
 const StyledWithdraw = styled.div`
   height: 35rem;

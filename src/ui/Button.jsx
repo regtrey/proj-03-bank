@@ -5,6 +5,12 @@ const sizes = {
     width: 100%;
     font-size: 2rem;
   `,
+
+  medium: css`
+    width: max-content;
+    font-size: 2.5rem;
+    padding: 2rem;
+  `,
 };
 
 export const Button = styled.button`

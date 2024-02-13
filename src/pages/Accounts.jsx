@@ -4,14 +4,14 @@ import { useSearchParams } from 'react-router-dom';
 import { Heading } from '../ui/Heading';
 import Filter from '../ui/Filter';
 import AccountBalance from '../features/accounts/AccountBalance';
-import Deposit from '../features/accounts/Deposit';
-import Withdraw from '../features/accounts/Withdraw';
+import Debit from '../features/accounts/Debit';
+import Credit from '../features/accounts/Credit';
 
 const StyledAccounts = styled.div`
   height: 100%;
   padding: 3rem;
   display: grid;
-  grid-template-columns: 1fr 23rem;
+  grid-template-columns: 1fr 20rem;
   grid-template-rows: auto 1fr;
   gap: 1.5rem;
 `;
@@ -27,22 +27,17 @@ const AccountContainer = styled.div`
   grid-row: 2 / -1;
 `;
 
-const StyledSavings = styled.div`
-  display: flex;
-  gap: 1.5rem;
-`;
-
 function Accounts() {
   const [searchParams] = useSearchParams();
 
-  const curSelected = searchParams.get('select') ?? 'savings';
+  const curSelected = searchParams.get('select') ?? 'debit';
 
   return (
     <StyledAccounts>
       <Heading>Manage Account</Heading>
       <Filter
         options={[
-          { field: 'Savings', value: 'savings' },
+          { field: 'Debit', value: 'debit' },
           { field: 'Credit', value: 'credit' },
           { field: 'Loan', value: 'loan' },
         ]}
@@ -50,10 +45,9 @@ function Accounts() {
 
       <AccountContainer>
         <AccountBalance />
-        <StyledSavings>
-          <Deposit />
-          <Withdraw />
-        </StyledSavings>
+
+        {curSelected === 'debit' && <Debit />}
+        {curSelected === 'credit' && <Credit />}
       </AccountContainer>
     </StyledAccounts>
   );

@@ -3,7 +3,11 @@ import getCurrentTime from '../../utils/getCurrentTime';
 
 const initialState = {
   balance: 0,
+  creditBalance: 8000,
   loanBalance: 0,
+  bills: {
+    creditCardBill: 2000,
+  },
   transactions: [],
   isLoading: false,
 };
@@ -16,7 +20,8 @@ const accountsSlice = createSlice({
       state.balance += action.payload;
       state.transactions.push({
         date: getCurrentTime(),
-        type: 'Deposit',
+        type: 'positive',
+        message: 'Deposit',
         amount: action.payload,
       });
       state.isLoading = false;
@@ -25,7 +30,8 @@ const accountsSlice = createSlice({
       state.balance -= action.payload;
       state.transactions.push({
         date: getCurrentTime(),
-        type: 'Withdraw',
+        type: 'negative',
+        message: 'Withdraw',
         amount: action.payload,
       });
     },
@@ -33,13 +39,24 @@ const accountsSlice = createSlice({
       state.loanBalance += action.payload;
       state.balance += action.payload;
     },
+    payCreditCard(state, action) {
+      state.balance -= action.payload;
+      state.creditBalance += action.payload;
+      state.bills.creditCardBill -= action.payload;
+      state.transactions.push({
+        date: getCurrentTime(),
+        type: 'negative',
+        message: 'Credit card bill payment',
+        amount: action.payload,
+      });
+    },
     convertingCurrency(state) {
       state.isLoading = true;
     },
   },
 });
 
-export const { withdraw, loan } = accountsSlice.actions;
+export const { withdraw, loan, payCreditCard } = accountsSlice.actions;
 
 export function deposit(amount, currency) {
   if (currency === 'USD') {

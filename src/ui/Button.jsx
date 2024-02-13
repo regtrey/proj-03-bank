@@ -29,5 +29,10 @@ export const Button = styled.button`
     background-color: var(--color-primary-500);
   }
 
+  &:disabled {
+    background-color: var(--color-gray-300);
+    cursor: default;
+  }
+
   ${(props) => sizes[props.$size]}
 `;

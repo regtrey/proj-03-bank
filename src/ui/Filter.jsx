@@ -17,7 +17,7 @@ const StyledFilter = styled.div`
 function Filter({ options }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const curSelected = searchParams.get('select') ?? 'savings';
+  const curSelected = searchParams.get('select') ?? 'debit';
 
   function handleSelect(e) {
     searchParams.set('select', e.target.value);

@@ -64,9 +64,11 @@ function Withdraw() {
           $isEnough={!isEnough ? 'insufficient' : ''}
           value={withdrawAmount}
           onChange={(e) => setWithdrawAmount(Number(e.target.value))}
-        ></Input>
+        />
         <ErrorSpan $isEnough={isEnough}>Insufficient balance</ErrorSpan>
-        <Button $size="small">Withdraw</Button>
+        <Button $size="small" disabled={!isEnough}>
+          Withdraw
+        </Button>
       </Form>
     </StyledWithdraw>
   );

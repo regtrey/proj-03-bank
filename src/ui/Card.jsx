@@ -8,6 +8,10 @@ const type = {
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
   `,
+  creditBalance: css`
+    width: 50%;
+    background-color: var(--color-gray-800);
+  `,
   expenses: css`
     background-color: var(--color-gray-800);
   `,

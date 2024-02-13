@@ -3,8 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   name: 'Naomi Osaka',
   cardDetails: {
-    cardNumber: '4012 2368 8918 1537',
-    cardExpiry: '05/27',
+    savings: {
+      cardNumber: '4012 2368 8918 1537',
+      cardExpiry: '05/27',
+    },
+    credit: {
+      cardNumber: '4352 8490 2271 6914',
+      cardExpiry: '08/29',
+    },
   },
 };
 

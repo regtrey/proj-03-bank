@@ -13,8 +13,12 @@ import {
 
 function ExpensesCard() {
   const username = useSelector((state) => state.user.name);
-  const cardNumber = useSelector((state) => state.user.cardDetails.cardNumber);
-  const cardExpiry = useSelector((state) => state.user.cardDetails.cardExpiry);
+  const cardNumber = useSelector(
+    (state) => state.user.cardDetails.savings.cardNumber
+  );
+  const cardExpiry = useSelector(
+    (state) => state.user.cardDetails.savings.cardExpiry
+  );
 
   return (
     <Card $type="expenses">

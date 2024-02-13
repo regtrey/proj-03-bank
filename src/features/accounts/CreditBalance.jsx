@@ -12,22 +12,31 @@ import {
   CardTitle,
 } from '../../ui/Card';
 
-function AccountBalance({ type = 'acctBalance' }) {
-  const cardBalance = useSelector((state) => state.accounts.balance);
+function CreditBalance() {
+  const creditCardBalance = useSelector(
+    (state) => state.accounts.creditBalance
+  );
+  const creditCardBill = useSelector(
+    (state) => state.accounts.bills.creditCardBill
+  );
   const username = useSelector((state) => state.user.name);
   const cardNumber = useSelector(
-    (state) => state.user.cardDetails.savings.cardNumber
+    (state) => state.user.cardDetails.credit.cardNumber
   );
   const cardExpiry = useSelector(
-    (state) => state.user.cardDetails.savings.cardExpiry
+    (state) => state.user.cardDetails.credit.cardExpiry
   );
 
   return (
-    <Card $type={type}>
+    <Card $type="creditBalance">
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
-        <CardTitle>Balance</CardTitle>
-        <Amount>{formatCurrency(cardBalance)}</Amount>
+        <CardTitle>Credit Card Bill</CardTitle>
+        <Amount>{formatCurrency(creditCardBill)}</Amount>
+      </BalanceDetails>
+      <BalanceDetails>
+        <CardTitle>Credit Balance</CardTitle>
+        <Amount>{formatCurrency(creditCardBalance)}</Amount>
       </BalanceDetails>
 
       <CardDetails>
@@ -40,4 +49,4 @@ function AccountBalance({ type = 'acctBalance' }) {
   );
 }
 
-export default AccountBalance;
+export default CreditBalance;

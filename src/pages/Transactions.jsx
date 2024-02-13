@@ -75,10 +75,10 @@ function Transactions() {
           {filteredTransactions.map((transaction, i) => (
             <Transaction key={i}>
               <TransactionDetails>
-                {transaction.type} <span>{transaction.date}</span>
+                {transaction.message} <span>{transaction.date}</span>
               </TransactionDetails>
-              <TransactionAmount $gain={transaction.type === 'Deposit'}>
-                {transaction.type !== 'Deposit' ? '-' : ''}
+              <TransactionAmount $gain={transaction.type === 'positive'}>
+                {transaction.type !== 'positive' ? '-' : ''}
                 {formatCurrency(transaction.amount)}
               </TransactionAmount>
             </Transaction>

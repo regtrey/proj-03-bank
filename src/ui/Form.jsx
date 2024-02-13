@@ -23,7 +23,8 @@ const error = {
 
 export const Input = styled.input`
   height: 4rem;
-  ${(props) => error[props.$isEnough]}
+
+  ${(props) => error[props.$isEnough]};
 `;
 
 export const Select = styled.select`

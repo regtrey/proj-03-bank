@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { payLoan } from './accountsSlice';
+import { usePayment } from '../../contexts/PaymentContext';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
@@ -33,32 +31,16 @@ const ErrorSpan = styled.span`
 `;
 
 function LoanPayment() {
-  const [paymentType, setPaymentType] = useState('full');
-  const [paymentAmount, setPaymentAmount] = useState(0);
-
-  const dispatch = useDispatch();
-  const balance = useSelector((state) => state.accounts.balance);
-  const loans = useSelector((state) => state.accounts.bills.loans);
-
-  const isEnough = balance >= paymentAmount;
-
-  useEffect(
-    function () {
-      if (paymentType === 'full') setPaymentAmount(loans);
-      if (paymentType === 'partial') setPaymentAmount(paymentAmount);
-    },
-    [paymentType, loans]
-  );
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!paymentAmount || paymentAmount > balance) return;
-
-    dispatch(payLoan(paymentAmount));
-    setPaymentType('full');
-    setPaymentAmount(loans);
-  }
+  const {
+    paymentType,
+    setPaymentType,
+    paymentAmount,
+    setPaymentAmount,
+    handleSubmit,
+    isEnough,
+    balance,
+    loans,
+  } = usePayment();
 
   return (
     <StyledLoanPayment>

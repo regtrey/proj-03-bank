@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { payCreditCard } from './accountsSlice';
+import { usePayment } from '../../contexts/PaymentContext';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
@@ -33,34 +31,16 @@ const ErrorSpan = styled.span`
 `;
 
 function CreditPayment() {
-  const [paymentType, setPaymentType] = useState('full');
-  const [paymentAmount, setPaymentAmount] = useState(0);
-
-  const dispatch = useDispatch();
-  const balance = useSelector((state) => state.accounts.balance);
-  const creditCardBill = useSelector(
-    (state) => state.accounts.bills.creditCardBill
-  );
-
-  const isEnough = balance >= paymentAmount;
-
-  useEffect(
-    function () {
-      if (paymentType === 'full') setPaymentAmount(creditCardBill);
-      if (paymentType === 'partial') setPaymentAmount(paymentAmount);
-    },
-    [paymentType, creditCardBill]
-  );
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!paymentAmount || paymentAmount > balance) return;
-
-    dispatch(payCreditCard(paymentAmount));
-    setPaymentType('full');
-    setPaymentAmount(creditCardBill);
-  }
+  const {
+    paymentType,
+    setPaymentType,
+    paymentAmount,
+    setPaymentAmount,
+    handleSubmit,
+    isEnough,
+    balance,
+    creditCardBill,
+  } = usePayment();
 
   return (
     <StyledCreditPayment>

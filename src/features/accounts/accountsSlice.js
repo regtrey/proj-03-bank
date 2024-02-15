@@ -40,7 +40,7 @@ const accountsSlice = createSlice({
       state.balance += action.payload;
       state.transactions.push({
         date: getCurrentTime(),
-        type: 'negative',
+        type: 'positive',
         message: 'Loan',
         amount: action.payload,
       });

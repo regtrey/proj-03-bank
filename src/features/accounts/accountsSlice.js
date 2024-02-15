@@ -36,8 +36,24 @@ const accountsSlice = createSlice({
       });
     },
     loan(state, action) {
-      state.loanBalance += action.payload;
+      state.bills.loans += action.payload;
       state.balance += action.payload;
+      state.transactions.push({
+        date: getCurrentTime(),
+        type: 'negative',
+        message: 'Loan',
+        amount: action.payload,
+      });
+    },
+    payLoan(state, action) {
+      state.balance -= action.payload;
+      state.bills.loans -= action.payload;
+      state.transactions.push({
+        date: getCurrentTime(),
+        type: 'negative',
+        message: 'Loan payment',
+        amount: action.payload,
+      });
     },
     payCreditCard(state, action) {
       state.balance -= action.payload;
@@ -56,7 +72,7 @@ const accountsSlice = createSlice({
   },
 });
 
-export const { withdraw, loan, payCreditCard } = accountsSlice.actions;
+export const { withdraw, loan, payLoan, payCreditCard } = accountsSlice.actions;
 
 export function deposit(amount, currency) {
   if (currency === 'USD') {

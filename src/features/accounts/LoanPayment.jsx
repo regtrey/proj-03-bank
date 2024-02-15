@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { payCreditCard } from './accountsSlice';
+import { payLoan } from './accountsSlice';
 
 import { Heading } from '../../ui/Heading';
 import { Form, Input, Label, Select } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 
 const StyledLoanPayment = styled.div`
+  height: 35rem;
   width: 50%;
   background-color: var(--color-gray-50);
   border-radius: 15px;
@@ -54,7 +55,7 @@ function LoanPayment() {
 
     if (!paymentAmount || paymentAmount > balance) return;
 
-    dispatch(payCreditCard(paymentAmount));
+    dispatch(payLoan(paymentAmount));
     setPaymentType('full');
     setPaymentAmount(loans);
   }

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import LoanPayment from './LoanPayment';
 import LoanBalance from './LoanBalance';
+import LoanRequest from './LoanRequest';
+import LoanPayment from './LoanPayment';
 
 const StyledLoan = styled.div`
   height: max-content;
@@ -13,7 +14,7 @@ function Loan() {
   return (
     <StyledLoan>
       <LoanBalance />
-      <LoanPayment />
+      <LoanRequest />
       <LoanPayment />
     </StyledLoan>
   );

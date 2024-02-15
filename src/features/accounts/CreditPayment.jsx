@@ -8,6 +8,7 @@ import { Form, Input, Label, Select } from '../../ui/Form';
 import { Button } from '../../ui/Button';
 
 const StyledCreditPayment = styled.div`
+  height: 35rem;
   width: 50%;
   background-color: var(--color-gray-50);
   border-radius: 15px;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Heading } from '../../ui/Heading';
-import { Form, Input, Label, Select } from '../../ui/Form';
-import { Button } from '../../ui/Button';
+import { Heading } from '../../../ui/Heading';
+import { Form, Input, Label, Select } from '../../../ui/Form';
+import { Button } from '../../../ui/Button';
 import { useState } from 'react';
-import { deposit } from './accountsSlice';
-import MiniSpinner from '../../ui/MiniSpinner';
+import { deposit } from '../accountsSlice';
+import MiniSpinner from '../../../ui/MiniSpinner';
 
 const StyledDeposit = styled.div`
   height: 35rem;

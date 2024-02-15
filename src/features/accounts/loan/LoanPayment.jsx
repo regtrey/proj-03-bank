@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { usePayment } from '../../contexts/PaymentContext';
+import { usePayment } from '../../../contexts/PaymentContext';
 
-import { Heading } from '../../ui/Heading';
-import { Form, Input, Label, Select } from '../../ui/Form';
-import { Button } from '../../ui/Button';
+import { Heading } from '../../../ui/Heading';
+import { Form, Input, Label, Select } from '../../../ui/Form';
+import { Button } from '../../../ui/Button';
 
 const StyledLoanPayment = styled.div`
   height: 35rem;

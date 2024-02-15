@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import formatCurrency from '../../utils/formatCurrency';
+import formatCurrency from '../../../utils/formatCurrency';
 
 import {
   Card,
@@ -10,15 +10,10 @@ import {
   CardName,
   CardNum,
   CardTitle,
-} from '../../ui/Card';
+} from '../../../ui/Card';
 
-function CreditBalance() {
-  const creditCardBalance = useSelector(
-    (state) => state.accounts.creditBalance
-  );
-  const creditCardBill = useSelector(
-    (state) => state.accounts.bills.creditCardBill
-  );
+function LoanBalance() {
+  const loans = useSelector((state) => state.accounts.bills.loans);
   const username = useSelector((state) => state.user.name);
   const cardNumber = useSelector(
     (state) => state.user.cardDetails.credit.cardNumber
@@ -28,15 +23,11 @@ function CreditBalance() {
   );
 
   return (
-    <Card $type="creditBalance">
+    <Card $type="loanBalance">
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
-        <CardTitle>Credit Card Bill</CardTitle>
-        <Amount>{formatCurrency(creditCardBill)}</Amount>
-      </BalanceDetails>
-      <BalanceDetails>
-        <CardTitle>Credit Balance</CardTitle>
-        <Amount>{formatCurrency(creditCardBalance)}</Amount>
+        <CardTitle>Loan Balance</CardTitle>
+        <Amount>{formatCurrency(loans)}</Amount>
       </BalanceDetails>
 
       <CardDetails>
@@ -49,4 +40,4 @@ function CreditBalance() {
   );
 }
 
-export default CreditBalance;
+export default LoanBalance;

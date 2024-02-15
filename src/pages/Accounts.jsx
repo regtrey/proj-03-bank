@@ -5,9 +5,9 @@ import { PaymentProvider } from '../contexts/PaymentContext';
 import { Heading } from '../ui/Heading';
 import Filter from '../ui/Filter';
 import AccountBalance from '../features/accounts/AccountBalance';
-import Debit from '../features/accounts/Debit';
-import Credit from '../features/accounts/Credit';
-import Loan from '../features/accounts/Loan';
+import Debit from '../features/accounts/debit/Debit';
+import Credit from '../features/accounts/credit/Credit';
+import Loan from '../features/accounts/loan/Loan';
 
 const StyledAccounts = styled.div`
   height: 100%;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useSearchParams } from 'react-router-dom';
-import { PaymentProvider } from '../contexts/PaymentContext';
 
 import { Heading } from '../ui/Heading';
 import Filter from '../ui/Filter';
@@ -49,10 +48,8 @@ function Accounts() {
         <AccountBalance />
 
         {curSelected === 'debit' && <Debit />}
-        <PaymentProvider>
-          {curSelected === 'credit' && <Credit />}
-          {curSelected === 'loan' && <Loan />}
-        </PaymentProvider>
+        {curSelected === 'credit' && <Credit />}
+        {curSelected === 'loan' && <Loan />}
       </AccountContainer>
     </StyledAccounts>
   );

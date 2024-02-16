@@ -1,11 +1,9 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { payLoan, payCreditCard } from '../features/accounts/accountsSlice';
 
-const PaymentContext = createContext();
-
-function PaymentProvider({ children }) {
+export function usePay() {
   const [paymentType, setPaymentType] = useState('full');
   const [paymentAmount, setPaymentAmount] = useState(0);
 
@@ -50,30 +48,15 @@ function PaymentProvider({ children }) {
     setPaymentType('full');
   }
 
-  return (
-    <PaymentContext.Provider
-      value={{
-        paymentType,
-        setPaymentType,
-        paymentAmount,
-        setPaymentAmount,
-        handleSubmit,
-        isEnough,
-        balance,
-        creditCardBill,
-        loans,
-      }}
-    >
-      {children}
-    </PaymentContext.Provider>
-  );
+  return {
+    paymentType,
+    setPaymentType,
+    paymentAmount,
+    setPaymentAmount,
+    handleSubmit,
+    isEnough,
+    balance,
+    creditCardBill,
+    loans,
+  };
 }
-
-function usePayment() {
-  const context = useContext(PaymentContext);
-  if (context === 'undefined')
-    throw new Error('Payment context was used outside of the provider');
-  return context;
-}
-
-export { PaymentProvider, usePayment };

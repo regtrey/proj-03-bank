@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { usePayment } from '../../../contexts/PaymentContext';
+import { usePay } from '../../../hooks/usePay';
 
 import { Heading } from '../../../ui/Heading';
 import { Form, Input, Label, Select } from '../../../ui/Form';
@@ -40,7 +40,7 @@ function CreditPayment() {
     isEnough,
     balance,
     creditCardBill,
-  } = usePayment();
+  } = usePay();
 
   return (
     <StyledCreditPayment>

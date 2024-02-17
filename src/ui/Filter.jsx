@@ -34,6 +34,7 @@ function Filter({ options, variant = 'default' }) {
     curSelected = searchParams.get('select') ?? 'all';
 
   function handleSelect(e) {
+    searchParams.set('page', 1);
     searchParams.set('select', e.target.value);
     setSearchParams(searchParams);
   }

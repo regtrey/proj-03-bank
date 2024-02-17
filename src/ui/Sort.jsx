@@ -14,7 +14,7 @@ const StyledSort = styled.div`
 function Sort() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const currentSorting = searchParams.get('sort') || '';
+  const currentSorting = searchParams.get('sort') || 'dateValue-asc';
 
   function handleSort(e) {
     searchParams.set('sort', e.target.value);
@@ -28,10 +28,10 @@ function Sort() {
         value={currentSorting}
         onChange={handleSort}
       >
-        <option value="amount-asc">Sort by amount (lowest to highest)</option>
-        <option value="amount-desc">Sort by amount (highest to lowest)</option>
         <option value="dateValue-asc">Sort by date (oldest to newest)</option>
         <option value="dateValue-desc">Sort by date (newest to oldest)</option>
+        <option value="amount-asc">Sort by amount (lowest to highest)</option>
+        <option value="amount-desc">Sort by amount (highest to lowest)</option>
       </Select>
     </StyledSort>
   );

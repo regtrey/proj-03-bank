@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { useSearchParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import useRefine from '../hooks/useRefine';
 import formatCurrency from '../utils/formatCurrency';
 
 import { Heading } from '../ui/Heading';
@@ -62,33 +61,8 @@ const TransactionAmount = styled.h3`
   /* color: ${(props) => props.$gain && '#29a429'}; */
 `;
 
-const MAX_ITEMS_PER_PAGE = 5;
-
 function Transactions() {
-  const [searchParams] = useSearchParams();
-  const transactions = useSelector((state) => state.accounts.transactions);
-
-  const currentPage = searchParams.get('page') || 1;
-  const startItem = currentPage * MAX_ITEMS_PER_PAGE - MAX_ITEMS_PER_PAGE;
-  const endItem = currentPage * MAX_ITEMS_PER_PAGE;
-
-  const currentFilter = searchParams.get('select') || 'all';
-  const currentSort = searchParams.get('sort') || 'amount-asc';
-
-  const sortSplit = currentSort.split('-');
-  const [sortField, sortDirection] = sortSplit;
-  const sortOrder = sortDirection === 'asc' ? 1 : -1;
-
-  const filtered = transactions.filter((item) => {
-    if (currentFilter !== 'all') return item.message.includes(currentFilter);
-    return transactions;
-  });
-  const numItems = filtered.length;
-
-  const sorted = filtered.sort(
-    (a, b) => (a[sortField] - b[sortField]) * sortOrder
-  );
-  const refinedTransactions = sorted.slice(startItem, endItem);
+  const { MAX_ITEMS_PER_PAGE, numItems, refinedTransactions } = useRefine();
 
   return (
     <StyledTransactions>

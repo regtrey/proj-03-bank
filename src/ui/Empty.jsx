@@ -7,7 +7,6 @@ const StyledEmpty = styled.div`
   height: 53rem;
   border: 1px solid var(--color-gray-100);
   border-radius: 10px;
-  margin: 1.5rem 0;
   display: flex;
   align-items: center;
   gap: 5rem;

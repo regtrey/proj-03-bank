@@ -12,28 +12,46 @@ import {
   CardTitle,
 } from '../../ui/Card';
 
-function BalanceCard() {
+function BalanceCard({ variant }) {
   const cardBalance = useSelector((state) => state.accounts.balance);
+  const creditBalance = useSelector((state) => state.accounts.creditBalance);
   const username = useSelector((state) => state.user.name);
-  const cardNumber = useSelector(
-    (state) => state.user.cardDetails.savings.cardNumber
+  const debitCardNumber = useSelector(
+    (state) => state.user.cardDetails.debit.cardNumber
   );
-  const cardExpiry = useSelector(
-    (state) => state.user.cardDetails.savings.cardExpiry
+  const debitCardExpiry = useSelector(
+    (state) => state.user.cardDetails.debit.cardExpiry
+  );
+  const creditCardNumber = useSelector(
+    (state) => state.user.cardDetails.credit.cardNumber
+  );
+  const creditCardExpiry = useSelector(
+    (state) => state.user.cardDetails.credit.cardExpiry
   );
 
   return (
-    <Card $type="balance">
+    <Card $type={variant}>
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
-        <CardTitle>Balance</CardTitle>
-        <Amount>{formatCurrency(cardBalance)}</Amount>
+        <CardTitle>
+          {variant === 'debit' ? 'Balance' : 'Credit limit balance'}
+        </CardTitle>
+        <Amount>
+          {variant === 'debit'
+            ? formatCurrency(cardBalance)
+            : formatCurrency(creditBalance)}
+        </Amount>
       </BalanceDetails>
 
       <CardDetails>
-        <CardNum>{cardNumber}</CardNum>
+        <CardNum>
+          {variant === 'debit' ? debitCardNumber : creditCardNumber}
+        </CardNum>
         <CardName>
-          {username} <span>{cardExpiry}</span>
+          {username}{' '}
+          <span>
+            {variant === 'debit' ? debitCardExpiry : creditCardExpiry}
+          </span>
         </CardName>
       </CardDetails>
     </Card>

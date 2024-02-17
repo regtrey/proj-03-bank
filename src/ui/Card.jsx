@@ -4,9 +4,12 @@ const type = {
   acctBalance: css`
     background-color: var(--color-gray-800);
   `,
-  balance: css`
+  debit: css`
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
+  `,
+  credit: css`
+    background-color: var(--color-gray-800);
   `,
   creditBalance: css`
     width: 50%;
@@ -18,7 +21,7 @@ const type = {
   `,
 
   expenses: css`
-    background-color: var(--color-gray-800);
+    background-color: var(--color-primary-500);
   `,
 };
 

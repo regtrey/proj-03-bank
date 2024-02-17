@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { Heading } from '../ui/Heading';
 import BalanceCard from '../features/dashboard/BalanceCard';
-import ExpensesCard from '../features/dashboard/ExpensesCard';
 import Bills from '../features/dashboard/Bills';
 
 const StyledDashboard = styled.div`
@@ -23,7 +22,7 @@ const StatsRow = styled.div`
 `;
 
 const StyledStatsChart = styled.div`
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-100);
   border-radius: 15px;
   padding: 2rem;
 
@@ -41,8 +40,8 @@ function Dashboard() {
       <Heading>Dashboard</Heading>
 
       <StatsRow>
-        <BalanceCard />
-        <ExpensesCard />
+        <BalanceCard variant="debit" />
+        <BalanceCard variant="credit" />
         <Bills />
       </StatsRow>
 

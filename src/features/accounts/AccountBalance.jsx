@@ -16,10 +16,10 @@ function AccountBalance({ type = 'acctBalance' }) {
   const cardBalance = useSelector((state) => state.accounts.balance);
   const username = useSelector((state) => state.user.name);
   const cardNumber = useSelector(
-    (state) => state.user.cardDetails.savings.cardNumber
+    (state) => state.user.cardDetails.debit.cardNumber
   );
   const cardExpiry = useSelector(
-    (state) => state.user.cardDetails.savings.cardExpiry
+    (state) => state.user.cardDetails.debit.cardExpiry
   );
 
   return (

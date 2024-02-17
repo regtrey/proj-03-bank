@@ -14,7 +14,7 @@ const StyledTransactions = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 33rem 25rem;
-  grid-template-rows: 4rem 1fr auto;
+  grid-template-rows: 4rem 50rem auto;
   gap: 1.5rem;
 `;
 

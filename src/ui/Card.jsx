@@ -13,11 +13,13 @@ const type = {
   `,
   creditBalance: css`
     width: 50%;
-    background-color: var(--color-gray-800);
+    background-color: var(--color-gradient-bg);
+    background-image: var(--color-gradient-mesh);
   `,
   loanBalance: css`
     width: 50%;
-    background-color: var(--color-gray-800);
+    background-color: var(--color-gradient-bg);
+    background-image: var(--color-gradient-mesh);
   `,
 
   expenses: css`

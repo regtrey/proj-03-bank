@@ -34,7 +34,7 @@ function BalanceCard({ variant }) {
       <CardLogo src="visa-logo.png" alt="Visa logo" />
       <BalanceDetails>
         <CardTitle>
-          {variant === 'debit' ? 'Balance' : 'Credit limit balance'}
+          {variant === 'debit' ? 'Balance' : 'Credit Card Balance'}
         </CardTitle>
         <Amount>
           {variant === 'debit'

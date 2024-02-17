@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Heading } from '../ui/Heading';
 import BalanceCard from '../features/dashboard/BalanceCard';
 import Bills from '../features/dashboard/Bills';
+import StatsChart from '../features/dashboard/StatsChart';
 
 const StyledDashboard = styled.div`
   height: 100%;
@@ -21,19 +22,6 @@ const StatsRow = styled.div`
   grid-row: 2 / 3;
 `;
 
-const StyledStatsChart = styled.div`
-  background-color: var(--color-gray-100);
-  border-radius: 15px;
-  padding: 2rem;
-
-  grid-column: 1 / -1;
-  grid-row: 3 / -1;
-`;
-
-const StatsChartHeading = styled(Heading)`
-  font-size: 2.2rem;
-`;
-
 function Dashboard() {
   return (
     <StyledDashboard>
@@ -45,9 +33,7 @@ function Dashboard() {
         <Bills />
       </StatsRow>
 
-      <StyledStatsChart>
-        <StatsChartHeading>Expenses Chart</StatsChartHeading>
-      </StyledStatsChart>
+      <StatsChart />
     </StyledDashboard>
   );
 }

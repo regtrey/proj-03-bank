@@ -8,7 +8,53 @@ const initialState = {
     creditCardBill: 2000,
     loans: 0,
   },
-  transactions: [],
+  transactions: [
+    {
+      date: getCurrentTime(),
+      dateValue: new Date().getTime(),
+      type: 'positive',
+      message: 'deposit',
+      amount: 2000,
+      deposit: 2000,
+      withdraw: 0,
+    },
+    {
+      date: getCurrentTime(),
+      dateValue: new Date().getTime(),
+      type: 'negative',
+      message: 'withdraw',
+      amount: 500,
+      deposit: 0,
+      withdraw: 500,
+    },
+    {
+      date: getCurrentTime(),
+      dateValue: new Date().getTime(),
+      type: 'positive',
+      message: 'deposit',
+      amount: 2000,
+      deposit: 2000,
+      withdraw: 0,
+    },
+    {
+      date: getCurrentTime(),
+      dateValue: new Date().getTime(),
+      type: 'negative',
+      message: 'withdraw',
+      amount: 2600,
+      deposit: 0,
+      withdraw: 2600,
+    },
+    {
+      date: getCurrentTime(),
+      dateValue: new Date().getTime(),
+      type: 'negative',
+      message: 'withdraw',
+      amount: 900,
+      deposit: 0,
+      withdraw: 900,
+    },
+  ],
   isLoading: false,
 };
 
@@ -24,6 +70,8 @@ const accountsSlice = createSlice({
         type: 'positive',
         message: 'deposit',
         amount: action.payload,
+        deposit: action.payload,
+        withdraw: 0,
       });
       state.isLoading = false;
     },
@@ -35,6 +83,8 @@ const accountsSlice = createSlice({
         type: 'negative',
         message: 'withdraw',
         amount: action.payload,
+        withdraw: action.payload,
+        deposit: 0,
       });
     },
     loan(state, action) {
@@ -46,6 +96,7 @@ const accountsSlice = createSlice({
         type: 'positive',
         message: 'loan',
         amount: action.payload,
+        loan: action.payload,
       });
     },
     payLoan(state, action) {
@@ -57,6 +108,7 @@ const accountsSlice = createSlice({
         type: 'negative',
         message: 'loan payment',
         amount: action.payload,
+        loan: action.payload,
       });
     },
     payCreditCard(state, action) {
@@ -69,6 +121,7 @@ const accountsSlice = createSlice({
         type: 'negative',
         message: 'credit card bill payment',
         amount: action.payload,
+        credit: action.payload,
       });
     },
     convertingCurrency(state) {

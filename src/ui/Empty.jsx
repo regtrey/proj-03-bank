@@ -12,6 +12,9 @@ const StyledEmpty = styled.div`
   align-items: center;
   gap: 5rem;
   padding: 2rem;
+
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
 `;
 
 const EmptyImage = styled.img`
@@ -36,7 +39,7 @@ function Empty() {
       <EmptyMessage>
         It looks like you don&apos;t have any transactions yet...
         <Button $size="medium" onClick={() => navigate('/accounts')}>
-          Manage account
+          Make transactions
         </Button>
       </EmptyMessage>
     </StyledEmpty>

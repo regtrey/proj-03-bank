@@ -37,6 +37,7 @@ function Accounts() {
     <StyledAccounts>
       <Heading>Manage Account</Heading>
       <Filter
+        $type="accounts"
         options={[
           { field: 'Debit', value: 'debit' },
           { field: 'Credit', value: 'credit' },

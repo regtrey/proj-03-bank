@@ -27,7 +27,17 @@ export const Input = styled.input`
   ${(props) => error[props.$isEnough]};
 `;
 
+const variant = {
+  transactions: css`
+    height: 100%;
+    border: 1px solid var(--color-gray-100);
+    border-radius: 6px;
+    margin-bottom: 0;
+  `,
+};
+
 export const Select = styled.select`
   height: 4rem;
   margin-bottom: 1.5rem;
+  ${(props) => variant[props.$variant]}
 `;

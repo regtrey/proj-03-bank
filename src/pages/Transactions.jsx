@@ -6,16 +6,24 @@ import formatCurrency from '../utils/formatCurrency';
 import { Heading } from '../ui/Heading';
 import Pagination from '../ui/Pagination';
 import Empty from '../ui/Empty';
+import Filter from '../ui/Filter';
+import Sort from '../ui/Sort';
 
 const StyledTransactions = styled.div`
   height: 100%;
   padding: 3rem;
-  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 33rem 25rem;
+  grid-template-rows: 4rem 1fr auto;
+  gap: 1.5rem;
 `;
 
 const TransactionsList = styled.ul`
   height: max-content;
-  margin: 1.5rem 0;
+
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
 `;
 
 const Transaction = styled.li`
@@ -27,6 +35,9 @@ const Transaction = styled.li`
   align-items: center;
   justify-content: space-between;
 
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
   &:first-of-type {
     border-top: 1px solid var(--color-gray-200);
   }
@@ -37,6 +48,7 @@ const TransactionDetails = styled.h2`
   display: flex;
   flex-direction: column;
   line-height: 1.6;
+  text-transform: capitalize;
 
   & span {
     font-size: 1rem;
@@ -54,25 +66,51 @@ const MAX_ITEMS_PER_PAGE = 5;
 
 function Transactions() {
   const [searchParams] = useSearchParams();
-
   const transactions = useSelector((state) => state.accounts.transactions);
-  const numItems = transactions.length;
 
   const currentPage = searchParams.get('page') || 1;
   const startItem = currentPage * MAX_ITEMS_PER_PAGE - MAX_ITEMS_PER_PAGE;
   const endItem = currentPage * MAX_ITEMS_PER_PAGE;
 
-  const filteredTransactions = transactions.slice(startItem, endItem);
+  const currentFilter = searchParams.get('select') || 'all';
+  const currentSort = searchParams.get('sort') || 'amount-asc';
+
+  const sortSplit = currentSort.split('-');
+  const [sortField, sortDirection] = sortSplit;
+  const sortOrder = sortDirection === 'asc' ? 1 : -1;
+
+  const filtered = transactions.filter((item) => {
+    if (currentFilter !== 'all') return item.message.includes(currentFilter);
+    return transactions;
+  });
+  const numItems = filtered.length;
+
+  const sorted = filtered.sort(
+    (a, b) => (a[sortField] - b[sortField]) * sortOrder
+  );
+  const refinedTransactions = sorted.slice(startItem, endItem);
 
   return (
     <StyledTransactions>
       <Heading>Transactions</Heading>
+      <Filter
+        $type="transactions"
+        variant="transactions"
+        options={[
+          { field: 'All', value: 'all' },
+          { field: 'Deposit', value: 'deposit' },
+          { field: 'Withdraw', value: 'withdraw' },
+          { field: 'Credit', value: 'credit' },
+          { field: 'Loan', value: 'loan' },
+        ]}
+      />
+      <Sort />
 
       {!numItems ? (
         <Empty />
       ) : (
         <TransactionsList>
-          {filteredTransactions.map((transaction, i) => (
+          {refinedTransactions.map((transaction, i) => (
             <Transaction key={i}>
               <TransactionDetails>
                 {transaction.message} <span>{transaction.date}</span>

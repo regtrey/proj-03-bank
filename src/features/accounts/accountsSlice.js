@@ -20,8 +20,9 @@ const accountsSlice = createSlice({
       state.balance += action.payload;
       state.transactions.push({
         date: getCurrentTime(),
+        dateValue: new Date().getTime(),
         type: 'positive',
-        message: 'Deposit',
+        message: 'deposit',
         amount: action.payload,
       });
       state.isLoading = false;
@@ -30,8 +31,9 @@ const accountsSlice = createSlice({
       state.balance -= action.payload;
       state.transactions.push({
         date: getCurrentTime(),
+        dateValue: new Date().getTime(),
         type: 'negative',
-        message: 'Withdraw',
+        message: 'withdraw',
         amount: action.payload,
       });
     },
@@ -40,8 +42,9 @@ const accountsSlice = createSlice({
       state.balance += action.payload;
       state.transactions.push({
         date: getCurrentTime(),
+        dateValue: new Date().getTime(),
         type: 'positive',
-        message: 'Loan',
+        message: 'loan',
         amount: action.payload,
       });
     },
@@ -50,8 +53,9 @@ const accountsSlice = createSlice({
       state.bills.loans -= action.payload;
       state.transactions.push({
         date: getCurrentTime(),
+        dateValue: new Date().getTime(),
         type: 'negative',
-        message: 'Loan payment',
+        message: 'loan payment',
         amount: action.payload,
       });
     },
@@ -61,8 +65,9 @@ const accountsSlice = createSlice({
       state.bills.creditCardBill -= action.payload;
       state.transactions.push({
         date: getCurrentTime(),
+        dateValue: new Date().getTime(),
         type: 'negative',
-        message: 'Credit card bill payment',
+        message: 'credit card bill payment',
         amount: action.payload,
       });
     },

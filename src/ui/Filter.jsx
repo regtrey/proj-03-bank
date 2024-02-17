@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSearchParams } from 'react-router-dom';
 
 import { FilterButton } from './FilterButton';
+
+const type = {
+  accounts: css`
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+  `,
+  transactions: css`
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  `,
+};
 
 const StyledFilter = styled.div`
   border: 1px solid var(--color-gray-100);
@@ -10,14 +21,17 @@ const StyledFilter = styled.div`
   display: flex;
   justify-content: space-between;
 
-  grid-column: 2 / -1;
-  grid-row: 1 / 2;
+  ${(props) => type[props.$type]}
 `;
 
-function Filter({ options }) {
+function Filter({ options, variant = 'default' }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const curSelected = searchParams.get('select') ?? 'debit';
+  let curSelected;
+  if (variant === 'default')
+    curSelected = searchParams.get('select') ?? 'debit';
+  if (variant === 'transactions')
+    curSelected = searchParams.get('select') ?? 'all';
 
   function handleSelect(e) {
     searchParams.set('select', e.target.value);

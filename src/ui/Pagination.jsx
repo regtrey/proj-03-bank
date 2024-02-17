@@ -8,6 +8,9 @@ const StyledPagination = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
+
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
 `;
 
 const PageSelect = styled.select`

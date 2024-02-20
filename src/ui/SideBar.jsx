@@ -7,7 +7,7 @@ import {
   HiOutlineCog6Tooth,
 } from 'react-icons/hi2';
 
-export const StyledSidebar = styled.nav`
+const StyledSidebar = styled.nav`
   border-right: 1px solid var(--color-gray-100);
   display: flex;
   align-items: flex-start;

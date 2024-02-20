@@ -35,7 +35,6 @@ function StatsChart() {
     : transactions.map((transaction) =>
         Object.assign({}, transaction, { date: transaction.date.slice(0, 6) })
       );
-  console.log(transactions, updatedTransactions);
 
   return (
     <StyledStatsChart>
@@ -50,6 +49,7 @@ function StatsChart() {
           <Legend />
           <Line type="monotone" dataKey="deposit" stroke="#3fd7b6" unit="$" />
           <Line type="monotone" dataKey="withdraw" stroke="#e08f55" unit="$" />
+          <Line type="monotone" dataKey="loan" stroke="#aa28d9" unit="$" />
         </LineChart>
       </ResponsiveContainer>
     </StyledStatsChart>

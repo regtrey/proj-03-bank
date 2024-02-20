@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import getCurrentTime from '../../utils/getCurrentTime';
+import { fakeTransactions } from '../../data/fakeTransactions';
 
 const initialState = {
   balance: 0,
@@ -8,53 +9,7 @@ const initialState = {
     creditCardBill: 2000,
     loans: 0,
   },
-  transactions: [
-    {
-      date: getCurrentTime(),
-      dateValue: new Date().getTime(),
-      type: 'positive',
-      message: 'deposit',
-      amount: 2000,
-      deposit: 2000,
-      withdraw: 0,
-    },
-    {
-      date: getCurrentTime(),
-      dateValue: new Date().getTime(),
-      type: 'negative',
-      message: 'withdraw',
-      amount: 500,
-      deposit: 0,
-      withdraw: 500,
-    },
-    {
-      date: getCurrentTime(),
-      dateValue: new Date().getTime(),
-      type: 'positive',
-      message: 'deposit',
-      amount: 2000,
-      deposit: 2000,
-      withdraw: 0,
-    },
-    {
-      date: getCurrentTime(),
-      dateValue: new Date().getTime(),
-      type: 'negative',
-      message: 'withdraw',
-      amount: 2600,
-      deposit: 0,
-      withdraw: 2600,
-    },
-    {
-      date: getCurrentTime(),
-      dateValue: new Date().getTime(),
-      type: 'negative',
-      message: 'withdraw',
-      amount: 900,
-      deposit: 0,
-      withdraw: 900,
-    },
-  ],
+  transactions: fakeTransactions,
   isLoading: false,
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 import { Header } from './Header';
 import { Logo } from './Logo';
 
@@ -33,7 +33,7 @@ function Layout() {
   return (
     <>
       <StyledLayout>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Header>
           <Logo>banco</Logo>
         </Header>

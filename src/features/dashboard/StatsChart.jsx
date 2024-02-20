@@ -22,6 +22,10 @@ const StyledStatsChart = styled.div`
 
   grid-column: 1 / -1;
   grid-row: 3 / -1;
+
+  @media screen and (max-width: 768px) {
+    height: max-content;
+  }
 `;
 
 const StatsChartHeading = styled(Heading)`
@@ -40,8 +44,8 @@ function StatsChart() {
     <StyledStatsChart>
       <StatsChartHeading>Transactions Chart</StatsChartHeading>
 
-      <ResponsiveContainer height="80%" width="100%">
-        <LineChart height={10} width={500} data={updatedTransactions}>
+      <ResponsiveContainer height="100%" width="100%">
+        <LineChart height="100%" width="100%" data={updatedTransactions}>
           <CartesianGrid strokeDasharray="3" />
           <XAxis dataKey="date" />
           <YAxis />

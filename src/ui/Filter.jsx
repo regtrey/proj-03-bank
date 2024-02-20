@@ -11,6 +11,12 @@ const type = {
   transactions: css`
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
   `,
 };
 
@@ -22,6 +28,10 @@ const StyledFilter = styled.div`
   justify-content: space-between;
 
   ${(props) => type[props.$type]}
+
+  @media screen and (max-width: 768px) {
+    height: 5rem;
+  }
 `;
 
 function Filter({ options, variant = 'default' }) {

@@ -16,6 +16,13 @@ const StyledTransactions = styled.div`
   grid-template-columns: 1fr 33rem 25rem;
   grid-template-rows: 4rem 50rem auto;
   gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    padding: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 50rem auto;
+  }
 `;
 
 const TransactionsList = styled.ul`
@@ -23,6 +30,11 @@ const TransactionsList = styled.ul`
 
   grid-column: 1 / -1;
   grid-row: 2 / 3;
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    grid-row: 4 / 5;
+  }
 `;
 
 const Transaction = styled.li`
@@ -34,8 +46,8 @@ const Transaction = styled.li`
   align-items: center;
   justify-content: space-between;
 
-  grid-column: 1 / -1;
-  grid-row: 1 / 2;
+  /* grid-column: 1 / -1;
+  grid-row: 1 / 2; */
 
   &:first-of-type {
     border-top: 1px solid var(--color-gray-200);
@@ -52,6 +64,14 @@ const TransactionDetails = styled.h2`
   & span {
     font-size: 1rem;
     color: var(--color-gray-500);
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 
@@ -59,6 +79,10 @@ const TransactionAmount = styled.h3`
   font-size: 2.5rem;
 
   /* color: ${(props) => props.$gain && '#29a429'}; */
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 function Transactions() {
@@ -66,7 +90,7 @@ function Transactions() {
 
   return (
     <StyledTransactions>
-      <Heading>Transactions</Heading>
+      <Heading $type="transactions">Transactions</Heading>
       <Filter
         $type="transactions"
         variant="transactions"

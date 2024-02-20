@@ -11,11 +11,20 @@ const StyledPagination = styled.div`
 
   grid-column: 1 / -1;
   grid-row: 3 / -1;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    grid-row: 5 / -1;
+  }
 `;
 
 const PageSelect = styled.select`
   font-size: 1.3rem;
   border-radius: 8px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 function Pagination({ numItems, maxItems }) {

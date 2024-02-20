@@ -17,6 +17,10 @@ const StyledDeposit = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled(Heading)`

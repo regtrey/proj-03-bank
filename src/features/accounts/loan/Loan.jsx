@@ -8,6 +8,10 @@ const StyledLoan = styled.div`
   height: max-content;
   display: flex;
   gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 function Loan() {

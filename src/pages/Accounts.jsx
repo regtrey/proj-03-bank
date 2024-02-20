@@ -15,6 +15,12 @@ const StyledAccounts = styled.div`
   grid-template-columns: 1fr 20rem;
   grid-template-rows: auto 1fr;
   gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr 20rem;
+    align-items: center;
+    padding: 2rem;
+  }
 `;
 
 const AccountContainer = styled.div`

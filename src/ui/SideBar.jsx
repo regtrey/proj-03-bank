@@ -17,6 +17,13 @@ export const StyledSidebar = styled.nav`
 
   grid-column: 1 / 2;
   grid-row: 1 / -1;
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem;
+
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+  }
 `;
 
 const NavList = styled.ul`
@@ -26,6 +33,16 @@ const NavList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 3rem;
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    border: 1px solid var(--color-gray-100);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -43,6 +60,11 @@ const StyledNavLink = styled(NavLink)`
     gap: 1rem;
     transition: all 0.5s;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      width: max-content;
+      padding: 1rem 1.5rem;
+    }
   }
 
   &:hover,
@@ -67,6 +89,10 @@ const StyledNavLink = styled(NavLink)`
 
 const Span = styled.span`
   font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 function SideBar() {

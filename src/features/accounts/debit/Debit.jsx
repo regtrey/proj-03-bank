@@ -6,6 +6,10 @@ import Withdraw from './Withdraw';
 const StyledDebit = styled.div`
   display: flex;
   gap: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 function Debit() {

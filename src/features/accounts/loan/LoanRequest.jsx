@@ -20,6 +20,16 @@ const StyledLoanRequest = styled.div`
   & input {
     margin-bottom: 10.5rem;
   }
+
+  @media screen and (max-width: 768px) {
+    height: max-content;
+    width: 100%;
+    padding-bottom: 4rem;
+
+    & input {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 const Title = styled(Heading)`

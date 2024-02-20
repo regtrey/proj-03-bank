@@ -10,13 +10,23 @@ const StyledLayout = styled.div`
   display: grid;
   grid-template-columns: 25rem 1fr;
   grid-template-rows: auto 1fr;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 1fr auto;
+  }
 `;
 
 const Main = styled.main`
+  overflow: scroll;
+
   grid-column: 2 / -1;
   grid-row: 2 / -1;
-  background-color: var(--color-gray-0);
-  overflow: scroll;
+
+  @media screen and (max-width: 768px) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  }
 `;
 
 function Layout() {

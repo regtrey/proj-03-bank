@@ -6,6 +6,10 @@ export const Header = styled.header`
   align-items: center;
   justify-content: center;
 
-  grid-column-start: 2;
-  grid-column-end: -1;
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+
+  @media screen and (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
 `;

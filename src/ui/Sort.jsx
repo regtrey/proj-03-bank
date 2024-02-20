@@ -9,6 +9,12 @@ const StyledSort = styled.div`
 
   grid-column: 3 / -1;
   grid-row: 1 / 2;
+
+  @media screen and (max-width: 768px) {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    justify-content: flex-start;
+  }
 `;
 
 function Sort() {

@@ -14,6 +14,10 @@ const StyledCreditPayment = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled(Heading)`
@@ -28,6 +32,12 @@ const ErrorSpan = styled.span`
   right: 1rem;
 
   display: ${(props) => (!props.$isEnough ? 'block' : 'none')};
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.1rem;
+    top: 8rem;
+    right: 0.5rem;
+  }
 `;
 
 function CreditPayment() {

@@ -15,11 +15,19 @@ const type = {
     width: 50%;
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
   `,
   loanBalance: css`
     width: 50%;
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
   `,
 
   expenses: css`

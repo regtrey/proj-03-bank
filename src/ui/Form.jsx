@@ -33,6 +33,11 @@ const variant = {
     border: 1px solid var(--color-gray-100);
     border-radius: 6px;
     margin-bottom: 0;
+
+    @media screen and (max-width: 768px) {
+      height: 5rem;
+      font-size: 1.5rem;
+    }
   `,
 };
 

@@ -95,7 +95,7 @@ const Span = styled.span`
   }
 `;
 
-function Sidebar() {
+function Nav() {
   return (
     <StyledSidebar>
       <NavList>
@@ -124,4 +124,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Nav;

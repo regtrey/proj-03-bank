@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
-import Sidebar from './Sidebar';
 import { Header } from './Header';
 import { Logo } from './Logo';
+import Nav from './Nav';
 
 const StyledLayout = styled.div`
   height: 100dvh;
@@ -33,7 +33,7 @@ function Layout() {
   return (
     <>
       <StyledLayout>
-        <Sidebar />
+        <Nav />
         <Header>
           <Logo>banco</Logo>
         </Header>

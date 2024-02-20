@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import {
   HiOutlineHome,
   HiOutlineBanknotes,
   HiOutlineArrowTrendingUp,
   HiOutlineCog6Tooth,
 } from 'react-icons/hi2';
-import { NavLink } from 'react-router-dom';
 
 export const StyledSidebar = styled.nav`
   border-right: 1px solid var(--color-gray-100);

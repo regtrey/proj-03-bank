@@ -44,8 +44,8 @@ function StatsChart() {
     <StyledStatsChart>
       <StatsChartHeading>Transactions Chart</StatsChartHeading>
 
-      <ResponsiveContainer height="100%" width="100%">
-        <LineChart height="100%" width="100%" data={updatedTransactions}>
+      <ResponsiveContainer height={200} width="100%">
+        <LineChart height={200} width="100%" data={updatedTransactions}>
           <CartesianGrid strokeDasharray="3" />
           <XAxis dataKey="date" />
           <YAxis />

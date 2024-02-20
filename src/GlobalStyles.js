@@ -81,9 +81,13 @@ const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
 
+
     input,
     select {
+        background-color: var(--color-gray-0);
+        color: var(--color-gray-700);
         border: 1px solid var(--color-gray-400);
+        border-radius: 4px;
         padding: 1rem;
 
         &:focus {

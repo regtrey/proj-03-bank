@@ -27,6 +27,8 @@ const accountsSlice = createSlice({
         amount: action.payload,
         deposit: action.payload,
         withdraw: 0,
+        loan: 0,
+        payments: 0,
       });
       state.isLoading = false;
     },
@@ -40,6 +42,8 @@ const accountsSlice = createSlice({
         amount: action.payload,
         withdraw: action.payload,
         deposit: 0,
+        loan: 0,
+        payments: 0,
       });
     },
     loan(state, action) {
@@ -51,7 +55,10 @@ const accountsSlice = createSlice({
         type: 'positive',
         message: 'loan',
         amount: action.payload,
+        deposit: 0,
+        withdraw: 0,
         loan: action.payload,
+        payments: 0,
       });
     },
     payLoan(state, action) {
@@ -63,7 +70,10 @@ const accountsSlice = createSlice({
         type: 'negative',
         message: 'loan payment',
         amount: action.payload,
-        loan: action.payload,
+        deposit: 0,
+        withdraw: 0,
+        loan: 0,
+        payments: action.payload,
       });
     },
     payCreditCard(state, action) {
@@ -76,7 +86,10 @@ const accountsSlice = createSlice({
         type: 'negative',
         message: 'credit card bill payment',
         amount: action.payload,
-        credit: action.payload,
+        deposit: 0,
+        withdraw: 0,
+        loan: 0,
+        payments: action.payload,
       });
     },
     convertingCurrency(state) {

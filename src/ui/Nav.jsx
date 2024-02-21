@@ -4,10 +4,9 @@ import {
   HiOutlineHome,
   HiOutlineBanknotes,
   HiOutlineArrowTrendingUp,
-  HiOutlineCog6Tooth,
 } from 'react-icons/hi2';
 
-const StyledSidebar = styled.nav`
+const StyledNav = styled.nav`
   border-right: 1px solid var(--color-gray-100);
   display: flex;
   align-items: flex-start;
@@ -35,7 +34,7 @@ const NavList = styled.ul`
   gap: 3rem;
 
   @media screen and (max-width: 768px) {
-    width: 90vw;
+    width: 65vw;
     border: 1px solid var(--color-gray-100);
     border-radius: 8px;
     padding: 1rem 1.5rem;
@@ -77,6 +76,10 @@ const StyledNavLink = styled(NavLink)`
   & svg {
     font-size: 2.5rem;
     transition: color 0.2s;
+
+    @media screen and (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   &:hover svg,
@@ -97,7 +100,7 @@ const Span = styled.span`
 
 function Nav() {
   return (
-    <StyledSidebar>
+    <StyledNav>
       <NavList>
         <li>
           <StyledNavLink to="/dashboard">
@@ -114,13 +117,8 @@ function Nav() {
             <HiOutlineArrowTrendingUp /> <Span>Transactions</Span>
           </StyledNavLink>
         </li>
-        <li>
-          <StyledNavLink to="/settings">
-            <HiOutlineCog6Tooth /> <Span>Settings</Span>
-          </StyledNavLink>
-        </li>
       </NavList>
-    </StyledSidebar>
+    </StyledNav>
   );
 }
 

@@ -13,7 +13,8 @@ import {
 import { useSelector } from 'react-redux';
 
 const StyledStatsChart = styled.div`
-  background-color: var(--color-gray-50);
+  /* background-color: var(--color-gray-50); */
+  border: 2px solid var(--color-gray-100);
   border-radius: 15px;
   padding: 2rem;
   display: flex;
@@ -51,8 +52,10 @@ function StatsChart() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="deposit" stroke="#3fd7b6" unit="$" />
-          <Line type="monotone" dataKey="withdraw" stroke="#e08f55" unit="$" />
+          <Line type="monotone" dataKey="deposit" stroke="#ff8800" unit="$" />
+          <Line type="monotone" dataKey="withdraw" stroke="#46bad4" unit="$" />
+          <Line type="monotone" dataKey="loan" stroke="#ff0080" unit="$" />
+          <Line type="monotone" dataKey="payments" stroke="#7300ff" unit="$" />
         </LineChart>
       </ResponsiveContainer>
     </StyledStatsChart>

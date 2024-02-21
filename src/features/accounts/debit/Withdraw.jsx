@@ -67,8 +67,9 @@ function Withdraw() {
     <StyledWithdraw>
       <Title as="h2">Withdraw</Title>
       <Form onSubmit={handleSubmit}>
-        <Label>Amount</Label>
+        <Label htmlFor="withdraw">Amount</Label>
         <Input
+          id="withdraw"
           type="tel"
           min="0"
           $isEnough={!isEnough ? 'insufficient' : ''}

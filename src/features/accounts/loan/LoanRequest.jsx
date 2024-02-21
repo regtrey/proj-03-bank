@@ -55,8 +55,9 @@ function LoanRequest() {
     <StyledLoanRequest>
       <Title as="h2">Request Loan</Title>
       <Form onSubmit={handleSubmit}>
-        <Label>Amount</Label>
+        <Label htmlFor="loan">Amount</Label>
         <Input
+          id="loan"
           type="tel"
           min="0"
           value={loanAmount}

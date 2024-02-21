@@ -56,8 +56,9 @@ function LoanPayment() {
     <StyledLoanPayment>
       <Title as="h2">Loan Payment</Title>
       <Form onSubmit={handleSubmit}>
-        <Label>Amount</Label>
+        <Label htmlFor="loan-payment">Amount</Label>
         <Input
+          id="loan-payment"
           type="tel"
           min="0"
           $isEnough={!isEnough ? 'insufficient' : ''}
@@ -67,8 +68,9 @@ function LoanPayment() {
         />
         <ErrorSpan $isEnough={isEnough}>Insufficient balance</ErrorSpan>
 
-        <Label>Select payment type</Label>
+        <Label htmlFor="select-loan-payment-type">Select payment type</Label>
         <Select
+          id="select-loan-payment-type"
           value={paymentType}
           onChange={(e) => setPaymentType(e.target.value)}
         >

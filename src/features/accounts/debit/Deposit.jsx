@@ -47,16 +47,21 @@ function Deposit() {
     <StyledDeposit>
       <Title as="h2">Deposit</Title>
       <Form onSubmit={handleSubmit}>
-        <Label>Amount</Label>
+        <Label htmlFor="deposit">Amount</Label>
         <Input
+          id="deposit"
           type="tel"
           min="0"
           value={depositAmount}
           onChange={(e) => setDepositAmount(Number(e.target.value))}
         />
 
-        <Label>Select currency</Label>
-        <Select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+        <Label htmlFor="select-currency">Select currency</Label>
+        <Select
+          id="select-currency"
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        >
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="GBP">GBP</option>

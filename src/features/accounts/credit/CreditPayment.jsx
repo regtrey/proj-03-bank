@@ -56,8 +56,9 @@ function CreditPayment() {
     <StyledCreditPayment>
       <Title as="h2">Credit Card Bill</Title>
       <Form onSubmit={handleSubmit}>
-        <Label>Amount</Label>
+        <Label htmlFor="credit">Amount</Label>
         <Input
+          id="credit"
           type="tel"
           min="0"
           $isEnough={!isEnough ? 'insufficient' : ''}
@@ -67,8 +68,9 @@ function CreditPayment() {
         />
         <ErrorSpan $isEnough={isEnough}>Insufficient balance</ErrorSpan>
 
-        <Label>Select payment type</Label>
+        <Label htmlFor="select-payment-type">Select payment type</Label>
         <Select
+          id="select-payment-type"
           value={paymentType}
           onChange={(e) => setPaymentType(e.target.value)}
         >

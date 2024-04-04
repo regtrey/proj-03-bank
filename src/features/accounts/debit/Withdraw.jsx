@@ -21,9 +21,12 @@ const StyledWithdraw = styled.div`
     margin-bottom: 10.5rem;
   }
 
-  @media screen and (max-width: 768px) {
-    height: max-content;
+  @media screen and (max-width: 850px) {
     width: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: max-content;
     padding-bottom: 4rem;
 
     & input {

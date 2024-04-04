@@ -9,7 +9,13 @@ const StyledLoan = styled.div`
   display: flex;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    flex-wrap: wrap;
+    padding-bottom: 12rem;
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: 767px) {
     flex-direction: column;
   }
 `;

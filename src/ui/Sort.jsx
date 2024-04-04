@@ -10,7 +10,11 @@ const StyledSort = styled.div`
   grid-column: 3 / -1;
   grid-row: 1 / 2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    grid-column: 2 / -1;
+  }
+
+  @media screen and (max-width: 767px) {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     justify-content: flex-start;
@@ -19,7 +23,6 @@ const StyledSort = styled.div`
 
 function Sort() {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const currentSorting = searchParams.get('sort') || 'dateValue-asc';
 
   function handleSort(e) {

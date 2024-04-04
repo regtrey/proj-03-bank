@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import getCurrentTime from '../../utils/getCurrentTime';
 import { fakeTransactions } from '../../data/fakeTransactions';
 

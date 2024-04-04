@@ -13,7 +13,6 @@ import {
 import { useSelector } from 'react-redux';
 
 const StyledStatsChart = styled.div`
-  /* background-color: var(--color-gray-50); */
   border: 2px solid var(--color-gray-100);
   border-radius: 15px;
   padding: 2rem;
@@ -24,8 +23,13 @@ const StyledStatsChart = styled.div`
   grid-column: 1 / -1;
   grid-row: 3 / -1;
 
-  @media screen and (max-width: 768px) {
-    height: max-content;
+  @media screen and (max-width: 850px) {
+    height: 40rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 25rem;
+    padding: 2rem 1rem;
   }
 `;
 
@@ -45,7 +49,7 @@ function StatsChart() {
     <StyledStatsChart>
       <StatsChartHeading>Transactions Chart</StatsChartHeading>
 
-      <ResponsiveContainer height={200} width="100%">
+      <ResponsiveContainer height="100%" width="100%">
         <LineChart height={200} width="100%" data={updatedTransactions}>
           <CartesianGrid strokeDasharray="3" />
           <XAxis dataKey="date" />

@@ -18,4 +18,8 @@ export const FilterButton = styled.button`
 
   background-color: ${(props) => props.$active && 'var(--color-primary-400)'};
   color: ${(props) => props.$active && 'var(--color-gray-0)'};
+
+  @media screen and (max-width: 320px) {
+    padding: 0.5rem;
+  }
 `;

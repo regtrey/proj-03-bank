@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Heading } from '../../../ui/Heading';
-import { Form, Input, Label, Select } from '../../../ui/Form';
-import { Button } from '../../../ui/Button';
-import { useState } from 'react';
 import { deposit } from '../accountsSlice';
+import { Heading } from '../../../ui/Heading';
+import { Button } from '../../../ui/Button';
+import { Form, Input, Label, Select } from '../../../ui/Form';
 import MiniSpinner from '../../../ui/MiniSpinner';
 
 const StyledDeposit = styled.div`
@@ -18,7 +18,7 @@ const StyledDeposit = styled.div`
   flex-direction: column;
   gap: 2rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
     width: 100%;
   }
 `;

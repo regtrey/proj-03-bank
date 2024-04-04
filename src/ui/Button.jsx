@@ -11,9 +11,14 @@ const sizes = {
     font-size: 2.5rem;
     padding: 2rem;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
+      font-size: 2.25rem;
+      padding: 1.75rem;
+    }
+
+    @media screen and (max-width: 767px) {
       font-size: 2rem;
-      padding: 1.5rem;
+      padding: 1.35rem;
     }
   `,
 };

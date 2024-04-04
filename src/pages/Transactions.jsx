@@ -17,9 +17,21 @@ const StyledTransactions = styled.div`
   grid-template-rows: 4rem 50rem auto;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
-    width: 90vw;
+  @media screen and (min-width: 1800px) {
+    width: 75vw;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 850px) {
+    padding-bottom: 12rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, max-content) 50rem auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: max-content;
     padding: 2rem;
+    padding-bottom: 12rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto 50rem auto;
   }
@@ -31,8 +43,12 @@ const TransactionsList = styled.ul`
   grid-column: 1 / -1;
   grid-row: 2 / 3;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
     width: 90vw;
+    grid-row: 3 / 4;
+  }
+
+  @media screen and (max-width: 767px) {
     grid-row: 4 / 5;
   }
 `;
@@ -65,12 +81,16 @@ const TransactionDetails = styled.h2`
     font-size: 1rem;
     color: var(--color-gray-500);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
+      font-size: 1.4rem;
+    }
+
+    @media screen and (max-width: 767px) {
       font-size: 1.1rem;
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 1.8rem;
   }
 `;

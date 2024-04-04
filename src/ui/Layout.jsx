@@ -11,7 +11,11 @@ const StyledLayout = styled.div`
   grid-template-columns: 25rem 1fr;
   grid-template-rows: auto 1fr;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 1800px) {
+    grid-template-columns: 30rem 1fr;
+  }
+
+  @media screen and (max-width: 850px) {
     grid-template-columns: 1fr;
     grid-template-rows: 7rem 1fr auto;
   }
@@ -23,7 +27,7 @@ const Main = styled.main`
   grid-column: 2 / -1;
   grid-row: 2 / -1;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
   }

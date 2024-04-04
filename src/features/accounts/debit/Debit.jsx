@@ -7,7 +7,7 @@ const StyledDebit = styled.div`
   display: flex;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
   }
 `;

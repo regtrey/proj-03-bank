@@ -12,7 +12,12 @@ const type = {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+
+    @media screen and (max-width: 767px) {
       font-size: 1.5rem;
       grid-column: 1 / -1;
       grid-row: 3 / 4;
@@ -29,8 +34,16 @@ const StyledFilter = styled.div`
 
   ${(props) => type[props.$type]}
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    height: 5.5rem;
+  }
+
+  @media screen and (max-width: 767px) {
     height: 5rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    height: 4.2rem;
   }
 `;
 

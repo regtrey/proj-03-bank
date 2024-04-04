@@ -38,6 +38,10 @@ const variant = {
       height: 5rem;
       font-size: 1.5rem;
     }
+
+    @media screen and (max-width: 320px) {
+      height: 4.75rem;
+    }
   `,
 };
 
@@ -45,4 +49,8 @@ export const Select = styled.select`
   height: 4rem;
   margin-bottom: 1.5rem;
   ${(props) => variant[props.$variant]}
+
+  @media screen and (min-width: 769px) and (max-width: 850px) {
+    height: 5.5rem;
+  }
 `;

@@ -13,10 +13,24 @@ const StyledDashboard = styled.div`
   grid-template-rows: auto 22.5rem 1fr;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 1800px) {
+    width: 75vw;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 850px) {
+    height: max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 25rem;
+    padding-bottom: 26rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: max-content;
     grid-template-columns: 90vw;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr 25rem;
     padding: 2rem;
+    padding-bottom: 12rem;
   }
 `;
 
@@ -27,7 +41,12 @@ const StatsRow = styled.div`
   grid-column: 1 / -1;
   grid-row: 2 / 3;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 767px) {
     flex-direction: column;
   }
 `;

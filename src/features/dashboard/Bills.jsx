@@ -17,9 +17,20 @@ const StyledBills = styled.div`
   gap: 1.5rem;
 
   & svg {
-    height: 7rem;
     width: 7rem;
+    height: 7rem;
     color: var(--color-primary-400);
+
+    @media screen and (max-width: 360px) {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 850px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5rem;
   }
 `;
 
@@ -34,10 +45,18 @@ const TotalExpenses = styled.h1`
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 360px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const ExpensesSpan = styled.span`
   font-size: 1.5rem;
+
+  @media screen and (max-width: 360px) {
+    font-size: 1.25rem;
+  }
 `;
 
 function Bills() {

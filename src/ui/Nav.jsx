@@ -17,11 +17,25 @@ const StyledNav = styled.nav`
   grid-column: 1 / 2;
   grid-row: 1 / -1;
 
-  @media screen and (max-width: 768px) {
-    padding: 1.5rem;
+  @media screen and (max-width: 850px) {
+    border-radius: 8px;
+    padding: 0;
+    margin-left: -15vw;
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 2;
 
     grid-column: 1 / -1;
     grid-row: 3 / -1;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-left: -30vw;
+  }
+
+  @media screen and (max-width: 360px) {
+    margin-left: -35vw;
   }
 `;
 
@@ -33,14 +47,24 @@ const NavList = styled.ul`
   justify-content: center;
   gap: 3rem;
 
-  @media screen and (max-width: 768px) {
-    width: 65vw;
+  @media screen and (max-width: 850px) {
+    width: 30vw;
+    background-color: var(--color-gray-0);
     border: 1px solid var(--color-gray-100);
     border-radius: 8px;
     padding: 1rem 1.5rem;
     flex-direction: row;
-    gap: 0;
     justify-content: space-between;
+    gap: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 60vw;
+    padding: 0.9rem 1.5rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    width: 70vw;
   }
 `;
 
@@ -60,7 +84,11 @@ const StyledNavLink = styled(NavLink)`
     transition: all 0.5s;
     cursor: pointer;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (min-width: 1800px) {
+      width: 25rem;
+    }
+
+    @media screen and (max-width: 850px) {
       width: max-content;
       padding: 1rem 1.5rem;
     }
@@ -77,7 +105,7 @@ const StyledNavLink = styled(NavLink)`
     font-size: 2.5rem;
     transition: color 0.2s;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
       font-size: 3rem;
     }
   }
@@ -93,7 +121,7 @@ const StyledNavLink = styled(NavLink)`
 const Span = styled.span`
   font-weight: 700;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
     display: none;
   }
 `;

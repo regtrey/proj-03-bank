@@ -5,7 +5,6 @@ import { Button } from './Button';
 
 const StyledEmpty = styled.div`
   height: 53rem;
-  border: 1px solid var(--color-gray-100);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -14,12 +13,37 @@ const StyledEmpty = styled.div`
 
   grid-column: 1 / -1;
   grid-row: 2 / 3;
+
+  @media screen and (max-width: 850px) {
+    grid-row: 3 / 4;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 90vw;
+    height: max-content;
+    flex-direction: column;
+    padding: 0;
+    padding-bottom: 3rem;
+    gap: 1rem;
+
+    grid-row: 4 / 5;
+  }
 `;
 
 const EmptyImage = styled.img`
-  height: 400px;
   width: 400px;
+  height: 400px;
   display: block;
+
+  @media screen and (max-width: 850px) {
+    width: 300px;
+    height: 300px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 const EmptyMessage = styled.h2`
@@ -27,6 +51,17 @@ const EmptyMessage = styled.h2`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  @media screen and (max-width: 850px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 function Empty() {

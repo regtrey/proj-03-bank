@@ -15,7 +15,11 @@ const StyledLoanPayment = styled.div`
   flex-direction: column;
   gap: 2rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    width: 49%;
+  }
+
+  @media screen and (max-width: 767px) {
     width: 100%;
   }
 `;

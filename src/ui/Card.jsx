@@ -7,9 +7,17 @@ const type = {
   debit: css`
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
+
+    @media screen and (min-width: 768px) and (max-width: 850px) {
+      width: 48.9%;
+    }
   `,
   credit: css`
     background-color: var(--color-gray-800);
+
+    @media screen and (min-width: 768px) and (max-width: 850px) {
+      width: 48.9%;
+    }
   `,
   creditBalance: css`
     width: 50%;
@@ -25,7 +33,7 @@ const type = {
     background-color: var(--color-gradient-bg);
     background-image: var(--color-gradient-mesh);
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
       width: 100%;
     }
   `,
@@ -69,6 +77,10 @@ export const CardTitle = styled.span`
 
 export const Amount = styled.h1`
   font-size: 5rem;
+
+  @media screen and (max-width: 360px) {
+    font-size: 3rem;
+  }
 `;
 
 export const CardDetails = styled.div`

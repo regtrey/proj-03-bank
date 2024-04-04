@@ -21,7 +21,11 @@ const StyledLoanRequest = styled.div`
     margin-bottom: 10.5rem;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
+    width: 49%;
+  }
+
+  @media screen and (max-width: 767px) {
     height: max-content;
     width: 100%;
     padding-bottom: 4rem;

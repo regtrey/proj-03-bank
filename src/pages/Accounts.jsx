@@ -16,10 +16,21 @@ const StyledAccounts = styled.div`
   grid-template-rows: auto 1fr;
   gap: 1.5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 1800px) {
+    width: 75vw;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: max-content;
     grid-template-columns: 1fr 20rem;
     align-items: center;
     padding: 2rem;
+    padding-bottom: 12rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    grid-template-columns: 1fr 16rem;
   }
 `;
 
@@ -36,7 +47,6 @@ const AccountContainer = styled.div`
 
 function Accounts() {
   const [searchParams] = useSearchParams();
-
   const curSelected = searchParams.get('select') ?? 'debit';
 
   return (
@@ -50,10 +60,8 @@ function Accounts() {
           { field: 'Loan', value: 'loan' },
         ]}
       />
-
       <AccountContainer>
         <AccountBalance />
-
         {curSelected === 'debit' && <Debit />}
         {curSelected === 'credit' && <Credit />}
         {curSelected === 'loan' && <Loan />}

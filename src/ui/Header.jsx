@@ -9,7 +9,7 @@ export const Header = styled.header`
   grid-column: 2 / -1;
   grid-row: 1 / 2;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 850px) {
     grid-column: 1 / -1;
   }
 `;
